@@ -6,7 +6,7 @@ df = pd.DataFrame()
 # Load the trained model and scaler
 model = pickle.load(open('linear_model.pkl', 'rb'))
 scaler = pickle.load(open('scaler.pkl', 'rb'))
-encoder = pickle.load(open('enconder.pkl', 'rb'))
+encoder = pickle.load(open('encoder.pkl', 'rb'))
 
 # Define the input features
 features = ['age', 'job', 'marital', 'education', 'balance', 'housing', 'loan',
