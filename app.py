@@ -30,21 +30,20 @@ contact = col1.selectbox("Contact", ['unknown', 'cellular', 'telephone'])
 poutcome = col2.selectbox("Prev Outcome", ['unknown', 'failure', 'success', 'other'])
 
 
-
 # Crear un DataFrame con las entradas
 user_data = pd.DataFrame({
     'age': [age],
-    'job': [job],
-    'balance': [balance],
-    'previous': [prev],
-    'marital': [marital],
     'education': [education],
-    'day': [day],
-    'month': [month],
+    'balance': [balance],
     'housing': [housing],
     'loan': [loan],
-    'campaign': [campaign],
+    'day': [day],
+    'month': [month],
     'duration': [duration],
+    'campaign': [campaign],
+    'previous': [prev],
+    'job': [job],
+    'marital': [marital],
     'contact': [contact],
     'poutcome': [poutcome],
 })
@@ -118,15 +117,13 @@ encoded_df= pd.concat([new_data_df, encoded_features_df], axis=1)
 # Concatenate numerical and encoded features
 input_df = pd.concat([df, encoded_df], axis=1)
 input_df  = input_df.drop(['job', 'marital', 'contact', 'poutcome'], axis=1)
-input_df.columns
-input_df.shape
+
 
 # Scale numerical features
 numerical_features = ['age', 'balance', 'day', 'duration', 'campaign', 'previous']
 input_df[numerical_features] = scaler.transform(input_df[numerical_features])
 
-input_df.columns
-input_df.shape
+
 
 # Make prediction
 prediction = model.predict(input_df)[0]
