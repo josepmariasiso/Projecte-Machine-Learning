@@ -10,7 +10,7 @@ scaler = pickle.load(open('scaler.pkl', 'rb'))
 encoder = pickle.load(open('encoder.pkl','rb'))
 
 # Create the Streamlit app
-st.title('Bank Deposit Prediction')
+st.title('Bank Deposit Prediction ML BarcelonaActiva')
 col1, col2 = st.columns(2)
 age = col1.number_input("Age", min_value=18, max_value=120)
 job = col2.selectbox("Job", ['unknown','admin.', 'technician', 'services', 'management', 'retired',
@@ -130,6 +130,6 @@ prediction = model.predict(input_df)[0]
 
 # Display the prediction
 if prediction == 1:
-    st.success('This customer is likely to subscribe to a term deposit.')
+    st.success('El mes probable es que aquest client subscrigui el diposit.')
 else:
-    st.error('This customer is unlikely to subscribe to a term deposit.')
+    st.error('El mes probable es que aquest client NO subscrigui el diposit.')
